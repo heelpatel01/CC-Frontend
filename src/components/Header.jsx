@@ -101,7 +101,7 @@ function Header() {
         </nav>
 
         {/* Call to Action or Logout Button for Desktop */}
-        {!login ? (
+         
           <div className="hidden md:block">
             <button
               onClick={handleLogout}
@@ -110,7 +110,8 @@ function Header() {
               Logout
             </button>
           </div>
-        ) : (
+          
+        
           <div className="hidden md:block">
             <Link
               to="/signup"
@@ -119,7 +120,7 @@ function Header() {
               Get Started
             </Link>
           </div>
-        )}
+        
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
