@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import axiosInstance from "../Utils/AxiosInstance";
+import AxiosInstance from "../Utils/AxiosInstance";
 import { AuthContext } from "../contexts/AuthProvider";
 import logo from "../assets/cryptocompasslogo.jpg"; // The imported logo
 import "./Header.css"
@@ -14,7 +14,7 @@ function Header() {
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
-        const response = await axiosInstance.get("/user/isloggedin");
+        const response = await AxiosInstance.get("/user/isloggedin");
         if (response.data && response.data.success) {
           setLogin(true);
         } else {
@@ -36,7 +36,7 @@ function Header() {
 
   const handleLogout = async () => {
     try {
-      const response = await axiosInstance.get("/user/logout");
+      const response = await AxiosInstance.get("/user/logout");
 
       if (response.data && response.data.success) {
         authState.setUniversalLoggedin(false);

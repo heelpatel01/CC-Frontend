@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axiosInstance from "../Utils/AxiosInstance";
+import AxiosInstance from "../Utils/AxiosInstance";
 import Header from "../components/Header";
 import { AuthProvider } from "../contexts/AuthProvider";
 
@@ -11,7 +11,7 @@ function Portfolio() {
 
   useEffect(() => {
     // Fetch portfolio data from backend API
-    axiosInstance
+    AxiosInstance
       .get("/holding/portfolio")
       .then((response) => {
         const { holdings, investedBalance, investableBalance, totalBalance } =

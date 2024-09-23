@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import Header from "../components/Header";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext, AuthProvider } from "../contexts/AuthProvider";
-import axiosInstance from "../Utils/AxiosInstance";
+import AxiosInstance from "../Utils/AxiosInstance";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -26,7 +26,7 @@ function Login() {
     setError("");
 
     try {
-      const response = await axiosInstance.post("/user/login", {
+      const response = await AxiosInstance.post("/user/login", {
         email,
         password,
       });

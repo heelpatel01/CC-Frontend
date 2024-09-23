@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import axiosInstance from "../Utils/AxiosInstance";
+import AxiosInstance from "../Utils/AxiosInstance";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -37,7 +37,7 @@ function TradeModal({ coin, onClose }) {
     }
 
     try {
-      const response = await axiosInstance.post("/transaction/buy", {
+      const response = await AxiosInstance.post("/transaction/buy", {
         type: "buy",
         coinId: coin.name.toLowerCase(),
         quantityOfCoins: quantity,
@@ -61,7 +61,7 @@ function TradeModal({ coin, onClose }) {
     }
 
     try {
-      const response = await axiosInstance.post("/transaction/sell", {
+      const response = await AxiosInstance.post("/transaction/sell", {
         coinId: coin.name.toLowerCase(),
         type: "sell",
         quantityOfCoins: quantity,
@@ -81,7 +81,7 @@ function TradeModal({ coin, onClose }) {
 
   const fetchTransactions = async () => {
     try {
-      const response = await axiosInstance.get(
+      const response = await AxiosInstance.get(
         "/transaction/showtransactions",
         {
           params: {
